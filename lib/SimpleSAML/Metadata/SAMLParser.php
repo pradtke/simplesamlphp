@@ -125,6 +125,7 @@ class SimpleSAML_Metadata_SAMLParser
     private $entityAttributes;
 
     /**
+     * An associative array of attributes from the RegistrationInfo element.
      * @var array
      */
     private $registrationInfo;
