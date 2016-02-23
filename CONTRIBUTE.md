@@ -63,8 +63,11 @@ exceptions thrown.
 deploy, and therefore we try to avoid it.
 * Add **unit tests** to verify that your code not only works but also keeps working over time. When adding tests, keep
 the same directory structure used for regular classes. Try to cover **all your code** with tests. The bigger the test
-coverage, the more reliable and better our library is.
-    * `phpunit --configuration tools/phpunit tests/path/to/your/test.php`
+coverage, the more reliable and better our library is. Run `phpunit` with the configuration in `tools/phpunit` to test
+SimpleSAMLphp. Examples:
+    * Run all tests `phpunit --configuration tools/phpunit`
+    * Run a specific test `phpunit --configuration tools/phpunit tests/path/to/your/test.php`
+    * Run tests if `phpunit` is not globally installed `vendor/phpunit/phpunit/phpunit.php --configuration tools/phpunit/`
 * Add proper **documentation** explaining your how to use your new feature or how your code changes things.
 * Submit your code as a **pull request** in github, from a branch with a descriptive name in your own fork of the
 repository. Add a meaningful, short title, and explain in detail what you did and why in the description of the *PR*.
