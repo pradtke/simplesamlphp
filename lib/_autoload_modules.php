@@ -24,7 +24,7 @@ function SimpleSAML_autoload($className)
     $module = substr($className, $modulePrefixLength, $modNameEnd - $modulePrefixLength);
     $moduleClass = substr($className, $modNameEnd + 1);
 
-    if (getenv('SIMPLESAMLPHP_ENABLE_ALL_MODULES') == false && !SimpleSAML_Module::isModuleEnabled($module)) {
+    if (!SimpleSAML_Module::isModuleEnabled($module)) {
         return;
     }
 
