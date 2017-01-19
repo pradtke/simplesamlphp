@@ -267,13 +267,18 @@ class sspmod_saml_IdP_SAML2 {
 			}
 
 			if (isset($_REQUEST['NameIDFormat'])) {
-				$nameIDFormat = (string)$_REQUEST['NameIDFormat'];
-			} else {
-				$nameIDFormat = NULL;
-			}
+                $nameIDFormat = (string)$_REQUEST['NameIDFormat'];
+            } else {
+                $nameIDFormat = NULL;
+            }
+
+            if (isset($_REQUEST['IDPList'])) {
+                $IDPList = explode(',', (string)$_REQUEST['IDPList']);
+            } else {
+                $IDPList = array();
+            }
 
 			$requestId = NULL;
-			$IDPList = array();
 			$ProxyCount = NULL;
 			$RequesterID = NULL;
 			$forceAuthn = FALSE;
