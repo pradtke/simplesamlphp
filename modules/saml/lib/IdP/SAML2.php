@@ -278,12 +278,17 @@ class sspmod_saml_IdP_SAML2 {
                 $IDPList = array();
             }
 
+            if (isset($_REQUEST['ConsumerURL'])) {
+                $consumerURL = (string)$_REQUEST['ConsumerURL'];
+            } else {
+                $consumerURL = NULL;
+            }
+
 			$requestId = NULL;
 			$ProxyCount = NULL;
 			$RequesterID = NULL;
 			$forceAuthn = FALSE;
 			$isPassive = FALSE;
-			$consumerURL = NULL;
 			$consumerIndex = NULL;
 			$extensions = NULL;
 			$allowCreate = TRUE;
@@ -365,6 +370,9 @@ class sspmod_saml_IdP_SAML2 {
 		if ($relayState !== NULL) {
 			$sessionLostParams['RelayState'] = $relayState;
 		}
+        if ($consumerURL !== NULL) {
+            $sessionLostParams['ConsumerURL'] = $consumerURL;
+        }
 
 		$sessionLostURL = \SimpleSAML\Utils\HTTP::addURLParameters(
             \SimpleSAML\Utils\HTTP::getSelfURLNoQuery(),
